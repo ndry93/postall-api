@@ -7,7 +7,6 @@
  */
 
 require(`dotenv`).config();
-const promiseSecrets = require('../../server/secrets');
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -33,10 +32,6 @@ const configs = {
 };
 
 const configObj = configs[env];
-
-promiseSecrets().then(data => {
-	// TO-DO: secrets from ASM
-});
 
 // https://nodejs.org/api/modules.html#module_caching
 // Caching Modules are cached after the first time they are loaded.
