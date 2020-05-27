@@ -13,15 +13,15 @@ function generateSpec() {
 	return generator.generateSpec(
 		{
 			info: {
-				title: 'Futuready Thailand Integration Project',
-				description: 'Futuready Thailand Integration Project for 3rd party API calls',
+				title: 'PostAll.id APIs',
+				description: 'API Documentation',
 				version: '1'
 			},
 			basePath: '/',
 			tags: [
 				{
 					name: 'api',
-					description: 'API documentation'
+					description: ''
 				}
 			]
 		},

@@ -8,7 +8,7 @@ module.exports = controller => {
 			path: '/',
 			tags: swaggerTags,
 			handler: async ctx => {
-				logger.info('Called HelloRoutes / ');
+				logger.info('Called poster routes / ');
 				ctx.logger = logger;
 				await controller.generateID(ctx);
 			}
