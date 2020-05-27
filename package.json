@@ -1,0 +1,59 @@
+{
+  "name": "postall-api",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "start:sls": "sls offline start",
+    "start:dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start:stg": "cross-env NODE_ENV=staging node index.js",
+    "start:prd": "cross-env NODE_ENV=production node index.js",
+    "test": "jest --verbose",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint-fix": "eslint --ignore-path .gitignore . --fix"
+  },
+  "author": "Hendry Yuwono",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ndry93/postall-api"
+  },
+  "bugs": {
+    "url": "https://github.com/ndry93/postall-api/issues"
+  },
+  "homepage": "https://github.com/ndry93/postall-api/issues",
+  "license": "Not open source",
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^1.19.1",
+    "run-sequence": "^0.3.6",
+    "supertest": "^0.13.0"
+  },
+  "dependencies": {
+    "@sentry/node": "^5.7.1",
+    "aws-sdk": "^2.596.0",
+    "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "koa": "^2.11.0",
+    "koa-helmet": "^5.2.0",
+    "koa-joi-router": "^6.0.0",
+    "koa-joi-router-docs": "^1.0.3",
+    "koa-morgan": "^1.0.1",
+    "pino": "^5.14.0",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "uuidv4": "^6.0.0",
+    "handlebars": "^4.7.3"
+  }
+}

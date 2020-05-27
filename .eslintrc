@@ -1,0 +1,12 @@
+{
+    "extends": ["airbnb", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "no-console": 1,
+        "indent": [2, "tab", { "SwitchCase": 1 }]
+    },
+    "env": {
+        "jest": true
+    }
+}
