@@ -1,29 +1,19 @@
 const { logger } = require('../../utils/logger')(__filename);
 
-function HelloService() {
-	async function getHello() {
-		logger.info('execute getHello');
+module.exports = () => {
+	async function checkValidUID(uid) {
+		logger.info('execute checkValidUID with uid ', uid);
 
 		const respObj = {
 			message: 'Hello'
 		};
 
-		return Promise.resolve(respObj);
-	}
-
-	async function getWorld() {
-		logger.info('execute getWorld');
-
-		const respObj = {
-			message: 'World'
-		};
-
-		return Promise.resolve(respObj);
+		const resp = await Promise.resolve(respObj);
+		if (resp) return true;
+		return false;
 	}
 
 	return {
-		getHello,
-		getWorld
+		checkValidUID
 	};
-}
-module.exports = HelloService;
+};

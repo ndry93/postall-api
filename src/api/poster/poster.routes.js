@@ -1,16 +1,15 @@
 const swaggerTags = ['api'];
-const { logger } = require('../../utils/logger')(__filename);
 
+// routes should not contain logger
 module.exports = controller => {
 	const routes = [
 		{
-			method: 'GET',
-			path: '/',
+			method: ['GET', 'POST', 'PUT', 'DELETE'],
+			path: '/:uid',
 			tags: swaggerTags,
-			handler: async ctx => {
-				logger.info('Called poster routes / ');
-				ctx.logger = logger;
-				await controller.generateID(ctx);
+			handler: async (ctx, next) => {
+				console.log("++++++++ ctx ", ctx);
+				await controller.showRequest(ctx);
 			}
 		}
 	];

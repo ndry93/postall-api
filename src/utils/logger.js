@@ -2,7 +2,7 @@ const logger = require('pino')();
 
 function initLogger(sourceName) {
 	const child = logger.child({
-		application: 'futuready-th-integration-api',
+		application: 'post-all',
 		sourceName
 	});
 	if (process.env.NODE_ENV === 'production') {
@@ -10,7 +10,7 @@ function initLogger(sourceName) {
 	} else {
 		child.level = 'info';
 	}
-	child.info('futuready-th-integration-api logger start ', child.level);
+	child.info('post-all logger start ', child.level);
 
 	return {
 		logger: child

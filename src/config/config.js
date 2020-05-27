@@ -13,20 +13,20 @@ const env = process.env.NODE_ENV || 'development';
 const configs = {
 	development: {
 		env,
-		PORT: 3000
-
+		PORT: 3000,
+		SENTRY_PROJECT_DSN: ''
 		// TO-DO: add development environment variables
 	},
 	staging: {
 		env,
-		PORT: 3000
-
+		PORT: 3000,
+		SENTRY_PROJECT_DSN: ''
 		// TO-DO: add staging environment variables
 	},
 	production: {
 		env,
-		PORT: 80
-
+		PORT: 80,
+		SENTRY_PROJECT_DSN: ''
 		// TO-DO: add production environment variables
 	}
 };

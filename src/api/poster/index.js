@@ -1,6 +1,10 @@
-const helloService = require('./poster.service')({
+const posterService = require('./poster.service')({
 	// db: require("../../../src/utils/db")
 });
-const helloController = require('./poster.controller')(helloService);
 
-module.exports = require('./poster.routes')(helloController);
+// controller function takes option argument
+const controller = require('./poster.controller')({
+	posterService
+});
+
+module.exports = require('./poster.routes')(controller);
