@@ -13,20 +13,16 @@ function applyApiMiddleware(app) {
 	// API main routes
 	const mainRouter = Router();
 	mainRouter.prefix('/api');
-
-	// Docs routes
-	let swaggerRoutes = [];
-
+	// sub routes
 	mainRouter.use(poster.middleware());
-	swaggerRoutes = [...docs.getRoutesForSpec(docs.addDocsForRouter(poster).generateSpec())];
+
+	docs.addDocsForRouter(poster);
+
+	mainRouter.route(docs.getRoutesForSpec(docs.generateSpec()));
 
 	logger.info('router initiated ', mainRouter);
-	const docsRouter = Router();
-	docsRouter.prefix('/docs');
-	docsRouter.route(swaggerRoutes);
-	app.use(mainRouter.middleware())
-		.use(mainRouter.router.allowedMethods())
-		.use(docsRouter.middleware());
+	app.use(mainRouter.middleware());
+	app.use(mainRouter.router.allowedMethods());
 }
 
 module.exports = applyApiMiddleware;

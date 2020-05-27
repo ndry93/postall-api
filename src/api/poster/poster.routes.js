@@ -6,9 +6,14 @@ module.exports = controller => {
 		{
 			method: ['GET', 'POST', 'PUT', 'DELETE'],
 			path: '/:uid',
-			tags: swaggerTags,
+			meta: {
+				swagger: {
+					summary: 'Poster',
+					description: `Monitor http request and response`,
+					swaggerTags
+				}
+			},
 			handler: async (ctx, next) => {
-				console.log("++++++++ ctx ", ctx);
 				await controller.showRequest(ctx);
 			}
 		}
