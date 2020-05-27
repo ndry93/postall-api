@@ -8,16 +8,20 @@ module.exports = services => {
 		const isValid = services.posterService.checkValidUID(ctx.params.uid);
 		logger.info('is uid valid ', isValid);
 
-		const response = {
-			...ctx.request,
-			...ctx.request.body
+		const { request, response } = ctx;
+
+		const httpReqObj = { request, body: request.body };
+		const httpResObj = { response, body: response.body };
+
+		const responseData = {
+			request: httpReqObj,
+			response: httpResObj
 		};
-		console.log('-------ctx.request.body ', ctx.request.body);
+
+		logger.info('responseData ', responseData);
+
 		ctx.body = {
-			data: {
-				request: ctx.request,
-				response: ctx.response
-			}
+			data: responseData
 		};
 	}
 

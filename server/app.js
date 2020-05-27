@@ -3,6 +3,7 @@ const helmet = require('koa-helmet');
 const Sentry = require('@sentry/node');
 const morgan = require('koa-morgan');
 const config = require('../src/config');
+const bodyParser = require('koa-bodyparser');
 const { logger } = require('../src/utils/logger')(__filename);
 
 // init KoaJs
@@ -24,6 +25,7 @@ app.use(helmet());
 app.use(morgan('combined'));
 app.use(customDomainHandler());
 app.use(errorHandler());
+app.use(bodyParser());
 
 app.use(async (ctx, next) => {
 	const start = Date.now();
