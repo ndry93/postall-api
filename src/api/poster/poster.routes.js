@@ -16,6 +16,34 @@ module.exports = controller => {
 			handler: async (ctx, next) => {
 				await controller.showRequest(ctx);
 			}
+		},
+		{
+			method: ['DELETE'],
+			path: '/delete/:uid',
+			meta: {
+				swagger: {
+					summary: 'Poster uid remover',
+					description: `Poster uid remover endpoint`,
+					swaggerTags
+				}
+			},
+			handler: async (ctx, next) => {
+				await controller.deleteUID(ctx);
+			}
+		},
+		{
+			method: ['POST'],
+			path: '/create/:uid',
+			meta: {
+				swagger: {
+					summary: 'Poster uid creator',
+					description: `Poster uid creator endpoint`,
+					swaggerTags
+				}
+			},
+			handler: async (ctx, next) => {
+				await controller.createUID(ctx);
+			}
 		}
 	];
 
