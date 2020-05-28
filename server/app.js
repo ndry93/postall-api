@@ -34,6 +34,11 @@ app.use(async (ctx, next) => {
 	ctx.set('X-Response-Time', `${ms}ms`);
 });
 
+app.use(async (ctx, next) => {
+	await next();
+	ctx.assert.equal('object', typeof ctx, 500, 'something went wrong');
+});
+
 const applyRouter = require('../src/api');
 
 applyRouter(app);
